@@ -1,4 +1,5 @@
 import javax.sound.midi.Soundbank;
+import javax.swing.text.html.parser.Entity;
 import java.util.*;
 import java.io.*;
 
@@ -27,18 +28,23 @@ public class Proj_IPL {
             deliveryList.add(temp);
         }
 //==========================================================================================================================
-        Solution1 sol1 = new Solution1();
-        System.out.println("Number of matches played per year of all the years in IPL.");
-        System.out.println(sol1.numberOfMatchPlayedPerYear(matchesList));
+//        Solution1 sol1 = new Solution1();
+//        System.out.println("1.Number of matches played per year of all the years in IPL.");
+//        System.out.println(sol1.numberOfMatchPlayedPerYear(matchesList));
+////==========================================================================================================================
+//        Solution2 sol2 = new Solution2();
+//        System.out.println("2.Number of matches won of all teams over all the years of IPL.");
+//        System.out.println(sol2.numberOfMatchesWon(matchesList));
+////==========================================================================================================================
+//        Solution3 sol3 = new Solution3();
+//        System.out.println("3.For the year 2016 get the extra runs conceded per team.");
+//        System.out.println(sol3.countExtraRuns(deliveryList,matchesList));
 //==========================================================================================================================
-        Solution2 sol2 = new Solution2();
-        System.out.println("Number of matches won of all teams over all the years of IPL.");
-        System.out.println(sol2.numberOfMatchesWon(matchesList));
+        Solution4 sol4 = new Solution4();
+        System.out.println("4. For the year 2015 get the top economical bowlers.");
+        System.out.println(sol4.economyRate(matchesList, deliveryList));
 //==========================================================================================================================
-        Solution3 sol3 = new Solution3();
-        System.out.println("For the year 2016 get the extra runs conceded per team.");
-        System.out.println(sol3.countExtraRuns(deliveryList,matchesList));
-//==========================================================================================================================
+
 
         br.close();
     }
@@ -387,6 +393,106 @@ class Solution3{
         return ids;
     }
 }
+
+class Solution4{
+    Map<String , Double> numberOfOver = new HashMap<>();
+    Map<String, Double> totalRun = new HashMap<>();
+    List<Integer> ids = new ArrayList<>();
+
+    public List<Map.Entry<String,Double>> economyRate(List<Matches> matchesList, List<Delivery> deliveryList)
+    {
+        for(Matches m : matchesList)
+        {
+            if(m.getSeason() == 2015)
+            {
+                ids.add(m.getId());
+            }
+        }
+
+        for (Delivery d :deliveryList)
+        {
+            if(ids.contains(d.getMatch_id()))
+            {
+                if(numberOfOver.containsKey(d.getBowler()))
+                {
+                    double runCount = d.getTotal_runs() + totalRun.get(d.getBowler());
+                    totalRun.replace(d.getBowler(), runCount);
+
+                    double countBall = numberOfOver.get(d.getBowler());
+                    numberOfOver.replace(d.getBowler(), ++countBall);
+                }
+                else {
+                    numberOfOver.put(d.getBowler(),1.0);
+                    totalRun.put(d.getBowler(), (double)d.getTotal_runs());
+
+                }
+            }
+        }
+
+        for(String key : numberOfOver.keySet())
+        {
+            numberOfOver.replace(key, numberOfOver.get(key)/6);
+        }
+
+        Map<String,Double> economyRate = totalRun;
+
+        for(String key : economyRate.keySet())
+        {
+            economyRate.replace(key, totalRun.get(key)/numberOfOver.get(key));
+        }
+
+        List<Map.Entry<String, Double>> topEconoyBowler = new ArrayList<>(economyRate.entrySet());
+//        Collections.sort(topEconoyBowler, (l1,l2)-> (int) (l1.getValue().compareTo(l2.getValue())));
+        Comparator<Map.Entry<String , Double>> myComp = new Comparator<Map.Entry<String, Double>>() {
+            @Override
+            public int compare(Map.Entry<String, Double> t1, Map.Entry<String, Double> t2) {
+                if(t1.getValue() > t2.getValue())
+                {
+                    return -1;
+                } else if (t1.getValue() == t2.getValue()) {
+                    return 0;
+                }
+                else {
+                    return 1;
+                }
+            }
+        };
+        Collections.sort(topEconoyBowler,myComp);
+        return topEconoyBowler;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 1.Very interesting project.
 2.Enjoying!!!!!!!!
