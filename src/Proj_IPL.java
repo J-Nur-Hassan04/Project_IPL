@@ -28,22 +28,36 @@ public class Proj_IPL {
             deliveryList.add(temp);
         }
 //==========================================================================================================================
-//        Solution1 sol1 = new Solution1();
-//        System.out.println("1.Number of matches played per year of all the years in IPL.");
-//        System.out.println(sol1.numberOfMatchPlayedPerYear(matchesList));
-////==========================================================================================================================
-//        Solution2 sol2 = new Solution2();
-//        System.out.println("2.Number of matches won of all teams over all the years of IPL.");
-//        System.out.println(sol2.numberOfMatchesWon(matchesList));
-////==========================================================================================================================
-//        Solution3 sol3 = new Solution3();
-//        System.out.println("3.For the year 2016 get the extra runs conceded per team.");
-//        System.out.println(sol3.countExtraRuns(deliveryList,matchesList));
+        Solution1 sol1 = new Solution1();
+        System.out.println("1.Number of matches played per year of all the years in IPL.");
+        System.out.println(sol1.numberOfMatchPlayedPerYear(matchesList));
+        System.out.println("==========================================================================================================================================");
+//==========================================================================================================================
+        Solution2 sol2 = new Solution2();
+        System.out.println("2.Number of matches won of all teams over all the years of IPL.");
+        System.out.println(sol2.numberOfMatchesWon(matchesList));
+        System.out.println("==========================================================================================================================================");
+
+//==========================================================================================================================
+        Solution3 sol3 = new Solution3();
+        System.out.println("3.For the year 2016 get the extra runs conceded per team.");
+        System.out.println(sol3.countExtraRuns(deliveryList,matchesList));
+        System.out.println("==========================================================================================================================================");
+
 //==========================================================================================================================
         Solution4 sol4 = new Solution4();
         System.out.println("4. For the year 2015 get the top economical bowlers.");
-        System.out.println(sol4.economyRate(matchesList, deliveryList));
+        sol4.economyRate(matchesList, deliveryList);
+        System.out.println("==========================================================================================================================================");
+
 //==========================================================================================================================
+        MyScenrio ms = new MyScenrio();
+        System.out.println("My Scenario ");
+        ms.strikeRate(deliveryList);
+        System.out.println("==========================================================================================================================================");
+
+//==========================================================================================================================
+
 
 
         br.close();
@@ -399,7 +413,7 @@ class Solution4{
     Map<String, Double> totalRun = new HashMap<>();
     List<Integer> ids = new ArrayList<>();
 
-    public List<Map.Entry<String,Double>> economyRate(List<Matches> matchesList, List<Delivery> deliveryList)
+    public void economyRate(List<Matches> matchesList, List<Delivery> deliveryList)
     {
         for(Matches m : matchesList)
         {
@@ -458,40 +472,71 @@ class Solution4{
             }
         };
         Collections.sort(topEconoyBowler,myComp);
-        return topEconoyBowler;
+
+        for(Map.Entry<String, Double> key : topEconoyBowler)
+        {
+            System.out.println(key);
+        }
     }
 
 }
+class MyScenrio
+{
+    Map<String, Integer> ballFaced = new HashMap<>();
+    Map<String, Double> totalRun = new HashMap<>();
+    Map<String,Double> rate = new HashMap<>();
+
+    public void strikeRate(List<Delivery> deliveryList)
+    {
+        for(Delivery batsMan : deliveryList)
+        {
+            if(ballFaced.containsKey(batsMan.getBatsman()))
+            {
+                Double total = totalRun.get(batsMan.getBatsman()) + batsMan.getTotal_runs();
+                totalRun.replace(batsMan.getBatsman(),total);
+
+                int ballCount = ballFaced.get(batsMan.getBatsman());
+                ballFaced.replace(batsMan.getBatsman(), ++ballCount);
+            }
+            else {
+                ballFaced.put(batsMan.getBatsman(),1);
+                totalRun.put(batsMan.getBatsman(),(double)batsMan.getTotal_runs());
+            }
+        }
+        for(String key : ballFaced.keySet())
+        {
+            rate.put(key, (totalRun.get(key) / ballFaced.get(key))*100);
+        }
+
+        List<Map.Entry<String,Double>> sortedStrikRate = new ArrayList<>(rate.entrySet());
+
+        Comparator<Map.Entry<String , Double>> mycomp = new Comparator<>(){
+            public int compare(Map.Entry<String,Double> t1, Map.Entry<String , Double> t2)
+            {
+                if(t1.getValue() > t2.getValue())
+                {
+                    return -1;
+                }
+                else if(t2.getValue() > t1.getValue())
+                {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            }
+        };
+
+        Collections.sort(sortedStrikRate, mycomp);
+
+        for(Map.Entry<String,Double> key : sortedStrikRate)
+        {
+            System.out.println(key);
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+}
 
 /*
 1.Very interesting project.
