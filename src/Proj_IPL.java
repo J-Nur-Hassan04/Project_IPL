@@ -27,40 +27,52 @@ public class Proj_IPL {
             Delivery temp = new Delivery(lineDelivery);
             deliveryList.add(temp);
         }
-//==========================================================================================================================
-        Solution1 sol1 = new Solution1();
-        System.out.println("1.Number of matches played per year of all the years in IPL.");
-        System.out.println(sol1.numberOfMatchPlayedPerYear(matchesList));
-        System.out.println("==========================================================================================================================================");
-//==========================================================================================================================
-        Solution2 sol2 = new Solution2();
-        System.out.println("2.Number of matches won of all teams over all the years of IPL.");
-        System.out.println(sol2.numberOfMatchesWon(matchesList));
-        System.out.println("==========================================================================================================================================");
 
-//==========================================================================================================================
-        Solution3 sol3 = new Solution3();
-        System.out.println("3.For the year 2016 get the extra runs conceded per team.");
-        System.out.println(sol3.countExtraRuns(deliveryList,matchesList));
-        System.out.println("==========================================================================================================================================");
+        int choice;
+        do {
+            System.out.println("1.Number of matches played per year of all the years in IPL.\n2.Number of matches won of all teams over all the years of IPL.3.For the year 2016 get the extra runs conceded per team.");
+            System.out.println("4. For the year 2015 get the top economical bowlers.\n5.My Scenario Calculate Strike Rate of Every player\n0.Exit\nEnter Choice");
+            choice = new Scanner(System.in).nextInt();
 
-//==========================================================================================================================
-        Solution4 sol4 = new Solution4();
-        System.out.println("4. For the year 2015 get the top economical bowlers.");
-        sol4.economyRate(matchesList, deliveryList);
-        System.out.println("==========================================================================================================================================");
+            switch (choice)
+            {
+                case 1:
+                    Solution1 sol1 = new Solution1();
+                    System.out.println("1.Number of matches played per year of all the years in IPL.");
+                    System.out.println(sol1.numberOfMatchPlayedPerYear(matchesList));
+                    System.out.println("==========================================================================================================================================");
+                    break;
+                case 2:
+                    Solution2 sol2 = new Solution2();
+                    System.out.println("2.Number of matches won of all teams over all the years of IPL.");
+                    System.out.println(sol2.numberOfMatchesWon(matchesList));
+                    System.out.println("==========================================================================================================================================");
+                    break;
+                case 3:
+                    Solution3 sol3 = new Solution3();
+                    System.out.println("3.For the year 2016 get the extra runs conceded per team.");
+                    System.out.println(sol3.countExtraRuns(deliveryList,matchesList));
+                    System.out.println("==========================================================================================================================================");
+                    break;
+                case 4:
+                    Solution4 sol4 = new Solution4();
+                    System.out.println("4. For the year 2015 get the top economical bowlers.");
+                    sol4.economyRate(matchesList, deliveryList);
+                    System.out.println("==========================================================================================================================================");
+                    break;
+                case 5:
+                    MyScenrio ms = new MyScenrio();
+                    System.out.println("My Scenario ");
+                    ms.strikeRate(deliveryList);
+                    System.out.println("==========================================================================================================================================");
+                    break;
+                default:
+                    System.out.println("\n\nEnter a right choice\n\n");
+                    break;
+            }
 
-//==========================================================================================================================
-        MyScenrio ms = new MyScenrio();
-        System.out.println("My Scenario ");
-        ms.strikeRate(deliveryList);
-        System.out.println("==========================================================================================================================================");
-
-//==========================================================================================================================
-
-
-
-        br.close();
+        }while (choice!=0);
+    br.close();
     }
 }
 class Matches {
