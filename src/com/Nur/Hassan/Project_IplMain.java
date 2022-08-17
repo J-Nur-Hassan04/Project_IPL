@@ -72,22 +72,23 @@ public class Project_IplMain {
                     System.out.println("\n\nExited!!!\n\n");
                     break;
                 case 1:
-                    new Solution1().numberOfMatchesPlayedPerYear(matchesList);
+                    printOutPutIntegerKey(new Solution1().numberOfMatchesPlayedPerYear(matchesList));
                     break;
                 case 2:
-                    new Solution2().numberOfMatchesWonOfAllTeamsOverAllTheYears(matchesList);
+                    printOutPutStringKey(new Solution2().numberOfMatchesWonOfAllTeamsOverAllTheYears(matchesList));
                     break;
                 case 3:
-                    new Solution3().extraRunsConcededPerTeam2016(deliveriesList, matchesList);
+                    printOutPutStringKey(new Solution3().extraRunsConcededPerTeam2016(deliveriesList, matchesList));
                     break;
                 case 4:
-                    new Solution4().topEconomicalBowlersOf2015(matchesList, deliveriesList);
+                    printOutPutList(new Solution4().topEconomicalBowlersOf2015(matchesList, deliveriesList));
+
                     break;
                 case 5:
-                    new MyScenrio().strikeRate(deliveriesList);
+                    printOutPutList(new MyScenrio().strikeRate(deliveriesList));
                     break;
                 default:
-                    System.out.println("\n\nEnter a valis choice!!!!!!!!!!!!");
+                    System.out.println("\n\nEnter a valid choice!!!!!!!!!!!!");
                     break;
             }
 
@@ -95,6 +96,28 @@ public class Project_IplMain {
 
 
     }
+
+    private static void printOutPutList(List<Map.Entry<String, Double>> list) {
+        for (Map.Entry<String, Double> map : list)
+        {
+            System.out.println(map);
+        }
+    }
+
+    private static void printOutPutIntegerKey(Map<Integer, Integer> map) {
+        for (Integer key : map.keySet())
+        {
+            System.out.println(key + " = "+ map.get(key));
+        }
+    }
+    private static void printOutPutStringKey(Map<String, Integer> map)
+    {
+        for (String key : map.keySet())
+        {
+            System.out.println(key + " = "+ map.get(key));
+        }
+    }
+
 
     public static List<Matches> getMatchesList() throws Exception {
         br = new BufferedReader(new FileReader("matches.csv"));

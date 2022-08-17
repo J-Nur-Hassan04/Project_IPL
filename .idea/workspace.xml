@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Project_IPL_:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d8eda634-c947-4d04-8210-04ee6d6c62a4" name="Changes" comment="Solution1 after Mentor's instruction.">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Deliveries.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Matches.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/MyScenrio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Project_IplMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matches.csv" beforeDir="false" afterPath="$PROJECT_DIR$/matches.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proj_IPL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/MyScenrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/MyScenrio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Project_IplMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Project_IplMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution4.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +48,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/nur/temp/Project_IPL_&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;
   }
 }</component>

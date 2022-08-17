@@ -3,7 +3,7 @@ package com.Nur.Hassan;
 import java.util.*;
 
 public class Solution1 {
-    public void numberOfMatchesPlayedPerYear(List<Matches> m)
+    public Map<Integer, Integer> numberOfMatchesPlayedPerYear(List<Matches> m)
     {
         Map<Integer, Integer> playedPerSeason = new HashMap<Integer, Integer>();
 
@@ -19,13 +19,7 @@ public class Solution1 {
                 playedPerSeason.put(mat.getSeason(),1);
             }
         }
-
-        Iterator<Integer> it = playedPerSeason.keySet().iterator();
-        while (it.hasNext())
-        {
-            int key = it.next();
-            System.out.println(key + " = " + playedPerSeason.get(key));
-        }
+        return playedPerSeason;
     }
 
 }

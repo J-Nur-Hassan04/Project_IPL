@@ -6,7 +6,7 @@ public class Solution3 {
     Map<String, Integer> map = new HashMap<String, Integer>();
 
 
-    public void extraRunsConcededPerTeam2016(List<Deliveries> d, List<Matches> m) {
+    public Map<String , Integer> extraRunsConcededPerTeam2016(List<Deliveries> d, List<Matches> m) {
         List<Integer> ids = matchIdsOf16(m);
         Map<String, Integer> map = new HashMap<String, Integer>();
         for (Deliveries dl : d) {
@@ -19,11 +19,7 @@ public class Solution3 {
                 }
             }
         }
-
-        for (String key : map.keySet()) {
-            System.out.println(key + " " + map.get(key));
-        }
-
+        return map;
     }
 
     private List<Integer> matchIdsOf16(List<Matches> m) {

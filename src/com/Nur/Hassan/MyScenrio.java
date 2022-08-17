@@ -7,7 +7,7 @@ public class MyScenrio {
     Map<String, Double> totalRun = new HashMap<>();
     Map<String,Double> rate = new HashMap<>();
 
-    public void strikeRate(List<Deliveries> deliveryList)
+    public List<Map.Entry<String, Double>> strikeRate(List<Deliveries> deliveryList)
     {
         for(Deliveries batsMan : deliveryList)
         {
@@ -50,10 +50,11 @@ public class MyScenrio {
 
         Collections.sort(sortedStrikRate, mycomp);
 
-        for(Map.Entry<String,Double> key : sortedStrikRate)
-        {
-            System.out.println(key);
-        }
+//        for(Map.Entry<String,Double> key : sortedStrikRate)
+//        {
+//            System.out.println(key);
+//        }
+        return sortedStrikRate;
 
 
     }

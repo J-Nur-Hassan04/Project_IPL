@@ -1,5 +1,6 @@
 package com.Nur.Hassan;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.*;
 
 public class Solution4 {
@@ -7,7 +8,7 @@ public class Solution4 {
     Map<String, Double> totalRun = new HashMap<>();
     List<Integer> ids = new ArrayList<>();
 
-    public void topEconomicalBowlersOf2015(List<Matches> matchesList, List<Deliveries> deliveryList)
+    public List<Map.Entry<String, Double>> topEconomicalBowlersOf2015(List<Matches> matchesList, List<Deliveries> deliveryList)
     {
         for(Matches m : matchesList)
         {
@@ -50,27 +51,27 @@ public class Solution4 {
         }
 
         List<Map.Entry<String, Double>> topEconoyBowler = new ArrayList<>(economyRate.entrySet());
-//        Collections.sort(topEconoyBowler, (l1,l2)-> (int) (l1.getValue().compareTo(l2.getValue())));
         Comparator<Map.Entry<String , Double>> myComp = new Comparator<Map.Entry<String, Double>>() {
             @Override
             public int compare(Map.Entry<String, Double> t1, Map.Entry<String, Double> t2) {
                 if(t1.getValue() > t2.getValue())
                 {
-                    return -1;
+                    return 1;
                 } else if (t1.getValue() == t2.getValue()) {
                     return 0;
                 }
                 else {
-                    return 1;
+                    return -1;
                 }
             }
         };
         Collections.sort(topEconoyBowler,myComp);
 
-        for(Map.Entry<String, Double> key : topEconoyBowler)
-        {
-            System.out.println(key);
-        }
+//        for(Map.Entry<String, Double> key : topEconoyBowler)
+//        {
+//            System.out.println(key);
+//        }
+        return topEconoyBowler;
     }
 
 }

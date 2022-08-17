@@ -3,7 +3,7 @@ package com.Nur.Hassan;
 import java.util.*;
 
 public class Solution2 {
-    public void numberOfMatchesWonOfAllTeamsOverAllTheYears(List<Matches> m)
+    public Map<String, Integer> numberOfMatchesWonOfAllTeamsOverAllTheYears(List<Matches> m)
     {
         Map<String , Integer> map = new HashMap<String , Integer>();
         for (Matches mat : m)
@@ -18,11 +18,7 @@ public class Solution2 {
                 map.put(mat.getWinner(),1);
             }
         }
-
-        for(String key : map.keySet())
-        {
-            System.out.println(key + " " + map.get(key));
-        }
+        return map;
     }
 
 }
