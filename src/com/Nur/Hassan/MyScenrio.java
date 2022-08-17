@@ -50,10 +50,6 @@ public class MyScenrio {
 
         Collections.sort(sortedStrikRate, mycomp);
 
-//        for(Map.Entry<String,Double> key : sortedStrikRate)
-//        {
-//            System.out.println(key);
-//        }
         return sortedStrikRate;
 
 

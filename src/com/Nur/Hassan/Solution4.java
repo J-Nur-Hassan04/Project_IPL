@@ -67,10 +67,6 @@ public class Solution4 {
         };
         Collections.sort(topEconoyBowler,myComp);
 
-//        for(Map.Entry<String, Double> key : topEconoyBowler)
-//        {
-//            System.out.println(key);
-//        }
         return topEconoyBowler;
     }
 

@@ -63,6 +63,7 @@ public class Project_IplMain {
             System.out.println("3. For the year 2016 get the extra runs conceded per team.");
             System.out.println("4. For the year 2015 get the top economical bowlers.");
             System.out.println("5. For strike rate of all player");
+            System.out.println("6.For the name of the player who take most number of wicket ");
             System.out.print("Enter your choice : ");
 
             choice = new Scanner(System.in).nextInt();
@@ -82,10 +83,12 @@ public class Project_IplMain {
                     break;
                 case 4:
                     printOutPutList(new Solution4().topEconomicalBowlersOf2015(matchesList, deliveriesList));
-
                     break;
                 case 5:
                     printOutPutList(new MyScenrio().strikeRate(deliveriesList));
+                    break;
+                case 6:
+                    System.out.println(new MyScenrio2().mostWicketTakenBowler(deliveriesList, matchesList));
                     break;
                 default:
                     System.out.println("\n\nEnter a valid choice!!!!!!!!!!!!");
