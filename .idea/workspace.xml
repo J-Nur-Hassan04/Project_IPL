@@ -7,17 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8eda634-c947-4d04-8210-04ee6d6c62a4" name="Changes" comment="Solution1 after Mentor's instruction.">
-      <change afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/ProjectIplMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Deliveries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/Deliveries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/MyScenrio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/MyScenrio2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Project_IplMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Solution4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/ProjectIplMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Nur/Hassan/ProjectIplMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -54,52 +54,24 @@ public class ProjectIplMain {
         List<Matches> matchesList = getMatchesList();
         List<Deliveries> deliveriesList = getDeliveriesList();
 
-        int choice;
-        int year;
+        System.out.println("Number of matches played per year of all the years in IPL.");
+        System.out.println(findNumberOfMatchesPlayedPerYear(matchesList));
 
-        do {
+        System.out.println("Number of matches won of all teams over all the years of IPL.");
+        System.out.println(findNumberOfMatchesWonOfAllTeamsOverAllTheYears(matchesList));
 
-            System.out.println("1. Number of matches played per year of all the years in IPL.");
-            System.out.println("2. Number of matches won of all teams over all the years of IPL.");
-            System.out.println("3. Get the extra runs conceded per team for a specific year.");
-            System.out.println("4. Get the top economical bowlers of Specific year.");
-            System.out.println("5. For strike rate of all player");
-            System.out.println("6.For the name of the player who take most number of wicket ");
-            System.out.print("Enter your choice : ");
+        System.out.println("For the year 2016 get the extra runs conceded per team.");
+        System.out.println(findExtraRunsConcededPerTeamInSpecificYear(deliveriesList,matchesList));
 
-            choice = new Scanner(System.in).nextInt();
+        System.out.println("For the year 2015 get the top economical bowlers.");
+        System.out.println(findTopEconomicalBowlersOfSpecificYear(matchesList, deliveriesList));
 
-            switch (choice) {
-                case 0:
-                    System.out.println("\n\nExited!!!\n\n");
-                    break;
-                case 1:
-                    printOutPut(numberOfMatchesPlayedPerYear(matchesList));
-                    break;
-                case 2:
-                    printOutPut(numberOfMatchesWonOfAllTeamsOverAllTheYears(matchesList));
-                    break;
-                case 3:
-                    System.out.print("Enter year : ");
-                    year = new Scanner(System.in).nextInt();
-                    printOutPut(extraRunsConcededPerTeamInSpecificYear(deliveriesList, year, matchesList));
-                    break;
-                case 4:
-                    System.out.println("Enter year");
-                    year = new Scanner(System.in).nextInt();
-                    printOutPut(topEconomicalBowlersOfSpecificYear(matchesList,year, deliveriesList));
-                    break;
-                case 5:
-                    printOutPut(strikeRate(deliveriesList));
-                    break;
-                case 6:
-                    System.out.println(mostWicketTakenBowler(deliveriesList, matchesList));
-                    break;
-                default:
-                    System.out.println("\n\nEnter a valid choice!!!!!!!!!!!!");
-                    break;
-            }
-        } while (choice != 0);
+        System.out.println("Strike rate of all player in IPL");
+        System.out.println(findStrikeRate(deliveriesList));
+
+        System.out.println("Wicket taken by every player in every season");
+        System.out.println(getListMostWicketTakenPlayerOfEachSeason(deliveriesList, matchesList));
+
     }
 
     public static List<Matches> getMatchesList() throws Exception {
@@ -111,8 +83,8 @@ public class ProjectIplMain {
             Matches matches = new Matches();
             String[] stringArr = matchesLine.split(",");
             String[] arr = new String[18];
-            for (int i = 0; i < stringArr.length; i++) {
-                arr[i] = stringArr[i];
+            for (int index = 0; index < stringArr.length; index++) {
+                arr[index] = stringArr[index];
             }
 
             matches.setId(Integer.parseInt(arr[ID]));
@@ -150,8 +122,8 @@ public class ProjectIplMain {
 
             String[] stringArr = deliverisLine.split(",");
             String[] arr = new String[21];
-            for (int i = 0; i < stringArr.length; i++) {
-                arr[i] = stringArr[i];
+            for (int index = 0; index < stringArr.length; index++) {
+                arr[index] = stringArr[index];
             }
 
             deliveries.setMatchId(Integer.parseInt(arr[MATCH_ID]));
@@ -182,7 +154,7 @@ public class ProjectIplMain {
         return deliveryList;
     }
 
-    public static Map<Integer, Integer> numberOfMatchesPlayedPerYear(List<Matches> matchesList) {
+    public static Map<Integer, Integer> findNumberOfMatchesPlayedPerYear(List<Matches> matchesList) {
         Map<Integer, Integer> playedPerSeason = new HashMap<Integer, Integer>();
 
         for (Matches matches : matchesList) {
@@ -196,7 +168,7 @@ public class ProjectIplMain {
         return playedPerSeason;
     }
 
-    public static Map<String, Integer> numberOfMatchesWonOfAllTeamsOverAllTheYears(List<Matches> matchesList) {
+    public static Map<String, Integer> findNumberOfMatchesWonOfAllTeamsOverAllTheYears(List<Matches> matchesList) {
         Map<String, Integer> matchesWon = new HashMap<String, Integer>();
         for (Matches matches : matchesList) {
             if (matchesWon.containsKey(matches.getWinner())) {
@@ -209,8 +181,11 @@ public class ProjectIplMain {
         return matchesWon;
     }
 
-    public static Map<String, Integer> extraRunsConcededPerTeamInSpecificYear(List<Deliveries> deliveriesList, int year,
-                                                                              List<Matches> matchesList) {
+    public static Map<String, Integer> findExtraRunsConcededPerTeamInSpecificYear(List<Deliveries> deliveriesList,
+                                                                                  List<Matches> matchesList) {
+        System.out.print("Enter year :");
+        int year = new Scanner(System.in).nextInt();
+
         List<Integer> ids = new ArrayList<>();
         for (Matches matches : matchesList) {
             if (matches.getSeason() == year) {
@@ -232,8 +207,10 @@ public class ProjectIplMain {
         return map;
     }
 
-    public static List<Map.Entry<String, Double>> topEconomicalBowlersOfSpecificYear(List<Matches> matchesList, int year,
-                                                                                     List<Deliveries> deliveryList) {
+    public static List<Map.Entry<String, Double>> findTopEconomicalBowlersOfSpecificYear(List<Matches> matchesList,
+                                                                                         List<Deliveries> deliveryList) {
+        System.out.print("Enter Year :");
+        int year = new Scanner(System.in).nextInt();
         Map<String, Double> numberOfOver = new HashMap<>();
         Map<String, Double> totalRun = new HashMap<>();
         List<Integer> ids = new ArrayList<>();
@@ -290,7 +267,7 @@ public class ProjectIplMain {
         return topEconoyBowler;
     }
 
-    public static List<Map.Entry<String, Double>> strikeRate(List<Deliveries> deliveryList) {
+    public static List<Map.Entry<String, Double>> findStrikeRate(List<Deliveries> deliveryList) {
         Map<String, Integer> ballFaced = new HashMap<>();
         Map<String, Double> totalRun = new HashMap<>();
         Map<String, Double> strikeRate = new HashMap<>();
@@ -344,7 +321,8 @@ public class ProjectIplMain {
 //
 //        return listOfEachBowlerMostWicketTakenInEachSeason;
 //    }
-    public static List<String> mostWicketTakenBowler(List<Deliveries> deliveriesList, List<Matches> matchesList) {
+    public static List<String> getListMostWicketTakenPlayerOfEachSeason(List<Deliveries> deliveriesList,
+                                                                        List<Matches> matchesList) {
 
         Map<Integer, List<Integer>> listOfIdOfEachYears = getIdsOfEachYear(matchesList);
         List<String> listOfEachBowlerMostWicketTakenInEachSeason = new ArrayList<>();
@@ -353,7 +331,7 @@ public class ProjectIplMain {
             List<Integer> list = listOfIdOfEachYears.get(key);
 //        listOfEachBowlerMostWicketTakenInEachSeason.add(getWicketTakenListOfEachPlayer(list, deliveriesList));
 //            String yearNameWicketTaken = "";
-            Map.Entry<String, Integer> dataOfMap = getWicketTakenListOfEachPlayer(list, deliveriesList);
+            Map.Entry<String, Integer> dataOfMap = findMostWicketTakenPlayerOfSeason(list, deliveriesList);
             String yearNameWicketTaken = key + " = " + dataOfMap.getKey() + " " + dataOfMap.getValue() + "\n";
             listOfEachBowlerMostWicketTakenInEachSeason.add(yearNameWicketTaken);
 
@@ -362,8 +340,8 @@ public class ProjectIplMain {
         return listOfEachBowlerMostWicketTakenInEachSeason;
     }
 
-    public static Map.Entry<String, Integer> getWicketTakenListOfEachPlayer(List<Integer> listOfIds,
-                                                                            List<Deliveries> deliveriesList) {
+    public static Map.Entry<String, Integer> findMostWicketTakenPlayerOfSeason(List<Integer> listOfIds,
+                                                                               List<Deliveries> deliveriesList) {
         Map<String, Integer> wicketTakenMap = new HashMap<>();
         for (Deliveries deliveries : deliveriesList) {
             if (listOfIds.contains(deliveries.getMatchId())) {
@@ -413,13 +391,5 @@ public class ProjectIplMain {
         Collections.sort(listToBeSort, myComparator);
 
         return listToBeSort;
-    }
-
-    public static <T> void printOutPut(T E) {
-        try {
-            System.out.println(E);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
     }
 }
