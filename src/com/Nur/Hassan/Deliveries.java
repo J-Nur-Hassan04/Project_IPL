@@ -1,44 +1,44 @@
 package com.Nur.Hassan;
 
 public class Deliveries {
-    private int match_id;
+    private int matchId;
     private int inning;
-    private String batting_team;
-    private String bowling_team;
+    private String battingTeam;
+    private String bowlingTeam;
     private int over;
     private int ball;
     private String batsman;
-    private String non_striker;
+    private String nonStriker;
     private String bowler;
-    private int is_super_over;
-    private int wide_runs;
-    private int bye_runs;
-    private int legbye_runs;
-    private int noball_runs;
-    private int penalty_runs;
-    private int batsman_runs;
-    private int extra_runs;
-    private int total_runs;
-    private String player_dismissed;
-    private String dismissal_kind;
+    private int isSuperOver;
+    private int wideRuns;
+    private int byeRuns;
+    private int legByRuns;
+    private int noBallRuns;
+    private int penaltyRuns;
+    private int batsmanRuns;
+    private int extraRuns;
+    private int totalRuns;
+    private String playerDismissed;
+    private String dismissalKind;
     private String fielder;
 
 
-    public int getMatch_id()
+    public int getMatchId()
     {
-        return match_id;
+        return matchId;
     }
 
     public int getInning() {
         return inning;
     }
 
-    public String getBatting_team() {
-        return batting_team;
+    public String getBattingTeam() {
+        return battingTeam;
     }
 
-    public String getBowling_team() {
-        return bowling_team;
+    public String getBowlingTeam() {
+        return bowlingTeam;
     }
 
     public int getOver() {
@@ -53,76 +53,76 @@ public class Deliveries {
         return batsman;
     }
 
-    public String getNon_striker() {
-        return non_striker;
+    public String getNonStriker() {
+        return nonStriker;
     }
 
     public String getBowler() {
         return bowler;
     }
 
-    public int getIs_super_over() {
-        return is_super_over;
+    public int getIsSuperOver() {
+        return isSuperOver;
     }
 
-    public int getWide_runs() {
-        return wide_runs;
+    public int getWideRuns() {
+        return wideRuns;
     }
 
-    public int getBye_runs() {
-        return bye_runs;
+    public int getByeRuns() {
+        return byeRuns;
     }
 
-    public int getLegbye_runs() {
-        return legbye_runs;
+    public int getLegByRuns() {
+        return legByRuns;
     }
 
-    public int getNoball_runs() {
-        return noball_runs;
+    public int getNoBallRuns() {
+        return noBallRuns;
     }
 
-    public int getPenalty_runs() {
-        return penalty_runs;
+    public int getPenaltyRuns() {
+        return penaltyRuns;
     }
 
-    public int getBatsman_runs() {
-        return batsman_runs;
+    public int getBatsmanRuns() {
+        return batsmanRuns;
     }
 
-    public int getExtra_runs() {
-        return extra_runs;
+    public int getExtraRuns() {
+        return extraRuns;
     }
 
-    public int getTotal_runs() {
-        return total_runs;
+    public int getTotalRuns() {
+        return totalRuns;
     }
 
-    public String getPlayer_dismissed() {
-        return player_dismissed;
+    public String getPlayerDismissed() {
+        return playerDismissed;
     }
 
-    public String getDismissal_kind() {
-        return dismissal_kind;
+    public String getDismissalKind() {
+        return dismissalKind;
     }
 
     public String getFielder() {
         return fielder;
     }
 
-    public void setMatch_id(int match_id) {
-        this.match_id = match_id;
+    public void setMatchId(int matchId) {
+        this.matchId = matchId;
     }
 
     public void setInning(int inning) {
         this.inning = inning;
     }
 
-    public void setBatting_team(String batting_team) {
-        this.batting_team = batting_team;
+    public void setBattingTeam(String battingTeam) {
+        this.battingTeam = battingTeam;
     }
 
-    public void setBowling_team(String bowling_team) {
-        this.bowling_team = bowling_team;
+    public void setBowlingTeam(String bowlingTeam) {
+        this.bowlingTeam = bowlingTeam;
     }
 
     public void setOver(int over) {
@@ -137,56 +137,56 @@ public class Deliveries {
         this.batsman = batsman;
     }
 
-    public void setNon_striker(String non_striker) {
-        this.non_striker = non_striker;
+    public void setNonStriker(String nonStriker) {
+        this.nonStriker = nonStriker;
     }
 
     public void setBowler(String bowler) {
         this.bowler = bowler;
     }
 
-    public void setIs_super_over(int is_super_over) {
-        this.is_super_over = is_super_over;
+    public void setIsSuperOver(int isSuperOver) {
+        this.isSuperOver = isSuperOver;
     }
 
-    public void setWide_runs(int wide_runs) {
-        this.wide_runs = wide_runs;
+    public void setWideRuns(int wideRuns) {
+        this.wideRuns = wideRuns;
     }
 
-    public void setBye_runs(int bye_runs) {
-        this.bye_runs = bye_runs;
+    public void setByeRuns(int byeRuns) {
+        this.byeRuns = byeRuns;
     }
 
-    public void setLegbye_runs(int legbye_runs) {
-        this.legbye_runs = legbye_runs;
+    public void setLegByRuns(int legByRuns) {
+        this.legByRuns = legByRuns;
     }
 
-    public void setNoball_runs(int noball_runs) {
-        this.noball_runs = noball_runs;
+    public void setNoBallRuns(int noBallRuns) {
+        this.noBallRuns = noBallRuns;
     }
 
-    public void setPenalty_runs(int penalty_runs) {
-        this.penalty_runs = penalty_runs;
+    public void setPenaltyRuns(int penaltyRuns) {
+        this.penaltyRuns = penaltyRuns;
     }
 
-    public void setBatsman_runs(int batsman_runs) {
-        this.batsman_runs = batsman_runs;
+    public void setBatsmanRuns(int batsmanRuns) {
+        this.batsmanRuns = batsmanRuns;
     }
 
-    public void setExtra_runs(int extra_runs) {
-        this.extra_runs = extra_runs;
+    public void setExtraRuns(int extraRuns) {
+        this.extraRuns = extraRuns;
     }
 
-    public void setTotal_runs(int total_runs) {
-        this.total_runs = total_runs;
+    public void setTotalRuns(int totalRuns) {
+        this.totalRuns = totalRuns;
     }
 
-    public void setPlayer_dismissed(String player_dismissed) {
-        this.player_dismissed = player_dismissed;
+    public void setPlayerDismissed(String playerDismissed) {
+        this.playerDismissed = playerDismissed;
     }
 
-    public void setDismissal_kind(String dismissal_kind) {
-        this.dismissal_kind = dismissal_kind;
+    public void setDismissalKind(String dismissalKind) {
+        this.dismissalKind = dismissalKind;
     }
 
     public void setFielder(String fielder) {
