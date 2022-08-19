@@ -1,4 +1,4 @@
-package com.Nur.Hassan;
+package com.nur.hassan;
 
 public class Deliveries {
     private int matchId;

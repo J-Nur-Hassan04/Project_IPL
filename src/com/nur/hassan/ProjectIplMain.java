@@ -1,4 +1,4 @@
-package com.Nur.Hassan;
+package com.nur.hassan;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -54,23 +54,12 @@ public class ProjectIplMain {
         List<Matches> matchesList = getMatchesList();
         List<Deliveries> deliveriesList = getDeliveriesList();
 
-        System.out.println("Number of matches played per year of all the years in IPL.");
-        System.out.println(findNumberOfMatchesPlayedPerYear(matchesList));
-
-        System.out.println("Number of matches won of all teams over all the years of IPL.");
-        System.out.println(findNumberOfMatchesWonOfAllTeamsOverAllTheYears(matchesList));
-
-        System.out.println("For the year 2016 get the extra runs conceded per team.");
-        System.out.println(findExtraRunsConcededPerTeamInSpecificYear(deliveriesList,matchesList));
-
-        System.out.println("For the year 2015 get the top economical bowlers.");
-        System.out.println(findTopEconomicalBowlersOfSpecificYear(matchesList, deliveriesList));
-
-        System.out.println("Strike rate of all player in IPL");
-        System.out.println(findStrikeRate(deliveriesList));
-
-        System.out.println("Wicket taken by every player in every season");
-        System.out.println(getListMostWicketTakenPlayerOfEachSeason(deliveriesList, matchesList));
+        findNumberOfMatchesPlayedPerYear(matchesList);
+        findNumberOfMatchesWonOfAllTeamsOverAllTheYears(matchesList);
+        findExtraRunsConcededPerTeamInSpecificYear(matchesList, deliveriesList);
+        findTopEconomicalBowlersOfSpecificYear(matchesList, deliveriesList);
+        findStrikeRate(deliveriesList);
+        getListMostWicketTakenPlayerOfEachSeason(matchesList, deliveriesList);
 
     }
 
@@ -154,7 +143,7 @@ public class ProjectIplMain {
         return deliveryList;
     }
 
-    public static Map<Integer, Integer> findNumberOfMatchesPlayedPerYear(List<Matches> matchesList) {
+    public static void findNumberOfMatchesPlayedPerYear(List<Matches> matchesList) {
         Map<Integer, Integer> playedPerSeason = new HashMap<Integer, Integer>();
 
         for (Matches matches : matchesList) {
@@ -165,10 +154,11 @@ public class ProjectIplMain {
                 playedPerSeason.put(matches.getSeason(), 1);
             }
         }
-        return playedPerSeason;
+        System.out.println("1. Number of matches played per year of all the years in IPL.");
+        System.out.println(playedPerSeason);
     }
 
-    public static Map<String, Integer> findNumberOfMatchesWonOfAllTeamsOverAllTheYears(List<Matches> matchesList) {
+    public static void findNumberOfMatchesWonOfAllTeamsOverAllTheYears(List<Matches> matchesList) {
         Map<String, Integer> matchesWon = new HashMap<String, Integer>();
         for (Matches matches : matchesList) {
             if (matchesWon.containsKey(matches.getWinner())) {
@@ -178,13 +168,15 @@ public class ProjectIplMain {
                 matchesWon.put(matches.getWinner(), 1);
             }
         }
-        return matchesWon;
+
+        System.out.println("2. Number of matches won of all teams over all the years of IPL.");
+        System.out.println(matchesWon);
     }
 
-    public static Map<String, Integer> findExtraRunsConcededPerTeamInSpecificYear(List<Deliveries> deliveriesList,
-                                                                                  List<Matches> matchesList) {
-        System.out.print("Enter year :");
-        int year = new Scanner(System.in).nextInt();
+    public static void findExtraRunsConcededPerTeamInSpecificYear(List<Matches> matchesList,
+                                                                  List<Deliveries> deliveriesList) {
+        //System.out.print("Enter year for which you want to calculate extra runs :");
+        int year = 2016;//new Scanner(System.in).nextInt();
 
         List<Integer> ids = new ArrayList<>();
         for (Matches matches : matchesList) {
@@ -192,25 +184,27 @@ public class ProjectIplMain {
                 ids.add(matches.getId());
             }
         }
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> mapExtraRun = new HashMap<String, Integer>();
         for (Deliveries deliveries : deliveriesList) {
             if (ids.contains(deliveries.getMatchId())) {
-                if (map.containsKey(year + " " + deliveries.getBattingTeam() + " Extra Runs ")) {
-                    int extraRun = map.get(year + " " + deliveries.getBattingTeam() + " Extra Runs ");
-                    map.replace(year + " " + deliveries.getBattingTeam() + " Extra Runs ",
-                                                                            (extraRun + deliveries.getExtraRuns()));
+                if (mapExtraRun.containsKey(deliveries.getBowlingTeam() + " Extra Runs ")) {
+                    int extraRun = mapExtraRun.get(deliveries.getBowlingTeam() + " Extra Runs ")
+                                                                                + deliveries.getExtraRuns();
+                    mapExtraRun.replace(deliveries.getBowlingTeam() + " Extra Runs ", extraRun);
                 } else {
-                    map.put(year + " " + deliveries.getBattingTeam() + " Extra Runs ", deliveries.getExtraRuns());
+                    mapExtraRun.put(deliveries.getBowlingTeam() + " Extra Runs ", deliveries.getExtraRuns());
                 }
             }
         }
-        return map;
+        System.out.println("3. For the year " + year + " get the extra runs conceded per team.");
+        System.out.println(mapExtraRun);
     }
 
-    public static List<Map.Entry<String, Double>> findTopEconomicalBowlersOfSpecificYear(List<Matches> matchesList,
-                                                                                         List<Deliveries> deliveryList) {
-        System.out.print("Enter Year :");
-        int year = new Scanner(System.in).nextInt();
+    public static void findTopEconomicalBowlersOfSpecificYear(List<Matches> matchesList,
+                                                              List<Deliveries> deliveryList) {
+        //System.out.print("Enter Year for which you want to find top economical bowler :");
+        int year = 2015;//new Scanner(System.in).nextInt();
+
         Map<String, Double> numberOfOver = new HashMap<>();
         Map<String, Double> totalRun = new HashMap<>();
         List<Integer> ids = new ArrayList<>();
@@ -220,15 +214,18 @@ public class ProjectIplMain {
                 ids.add(matches.getId());
             }
         }
-
         for (Deliveries deliveries : deliveryList) {
             if (ids.contains(deliveries.getMatchId())) {
-                if (numberOfOver.containsKey(deliveries.getBowler())) {
-                    double runCount = deliveries.getTotalRuns() + totalRun.get(deliveries.getBowler());
+                if (totalRun.containsKey(deliveries.getBowler())) {
+                    double runCount = totalRun.get(deliveries.getBowler()) + deliveries.getTotalRuns()
+                            - (deliveries.getByeRuns() + deliveries.getLegByRuns());
                     totalRun.replace(deliveries.getBowler(), runCount);
 
-                    double countBall = numberOfOver.get(deliveries.getBowler());
-                    numberOfOver.replace(deliveries.getBowler(), ++countBall);
+                    if (numberOfOver.containsKey(deliveries.getBowler()) && deliveries.getWideRuns() == 0
+                            && deliveries.getNoBallRuns() == 0) {
+                        double countBall = numberOfOver.get(deliveries.getBowler());
+                        numberOfOver.replace(deliveries.getBowler(), ++countBall);
+                    }
                 } else {
                     numberOfOver.put(deliveries.getBowler(), 1.0);
                     totalRun.put(deliveries.getBowler(), (double) deliveries.getTotalRuns());
@@ -236,6 +233,8 @@ public class ProjectIplMain {
                 }
             }
         }
+
+        System.out.println(numberOfOver);
 
         for (String key : numberOfOver.keySet()) {
             numberOfOver.replace(key, numberOfOver.get(key) / 6);
@@ -264,10 +263,11 @@ public class ProjectIplMain {
 
         Collections.sort(topEconoyBowler, myComp);
 
-        return topEconoyBowler;
+        System.out.println("4. For the year " + year + " get the top economical bowlers.");
+        System.out.println(topEconoyBowler);
     }
 
-    public static List<Map.Entry<String, Double>> findStrikeRate(List<Deliveries> deliveryList) {
+    public static void findStrikeRate(List<Deliveries> deliveryList) {
         Map<String, Integer> ballFaced = new HashMap<>();
         Map<String, Double> totalRun = new HashMap<>();
         Map<String, Double> strikeRate = new HashMap<>();
@@ -303,41 +303,45 @@ public class ProjectIplMain {
 
         Collections.sort(sortedStrikRate, mycomp);
 
-
-        return sortedStrikRate;
+        System.out.println("5. Strike rate of all player in IPL");
+        System.out.println(sortedStrikRate);
     }
 
-//  public static List<Map.Entry<String, Integer>> mostWicketTakenBowler(List<Deliveries> deliveriesList, List<Matches> matchesList)
-//        {
-//
-//        Map<Integer, List<Integer>> listOfIdOfEachYears = getIdsOfEachYear(matchesList);
-//        List<Map.Entry<String, Integer>> listOfEachBowlerMostWicketTakenInEachSeason = new ArrayList<>();
-//
-//        for (Integer key: listOfIdOfEachYears.keySet())
-//        {
-//            List<Integer> list = listOfIdOfEachYears.get(key);
-//            listOfEachBowlerMostWicketTakenInEachSeason.add(getWicketTakenListOfEachPlayer(list, deliveriesList));
-//        }
-//
-//        return listOfEachBowlerMostWicketTakenInEachSeason;
-//    }
-    public static List<String> getListMostWicketTakenPlayerOfEachSeason(List<Deliveries> deliveriesList,
-                                                                        List<Matches> matchesList) {
+    /*
+    this function is same as the followed function
+
+     public static List<Map.Entry<String, Integer>> mostWicketTakenBowler(List<Deliveries> deliveriesList, List<Matches> matchesList)
+           {
+
+           Map<Integer, List<Integer>> listOfIdOfEachYears = getIdsOfEachYear(matchesList);
+           List<Map.Entry<String, Integer>> listOfEachBowlerMostWicketTakenInEachSeason = new ArrayList<>();
+
+           for (Integer key: listOfIdOfEachYears.keySet())
+           {
+               List<Integer> list = listOfIdOfEachYears.get(key);
+               listOfEachBowlerMostWicketTakenInEachSeason.add(getWicketTakenListOfEachPlayer(list, deliveriesList));
+           }
+
+           return listOfEachBowlerMostWicketTakenInEachSeason;
+       }
+
+     */
+    public static void getListMostWicketTakenPlayerOfEachSeason(List<Matches> matchesList,
+                                                                List<Deliveries> deliveriesList) {
 
         Map<Integer, List<Integer>> listOfIdOfEachYears = getIdsOfEachYear(matchesList);
         List<String> listOfEachBowlerMostWicketTakenInEachSeason = new ArrayList<>();
 
         for (Integer key : listOfIdOfEachYears.keySet()) {
             List<Integer> list = listOfIdOfEachYears.get(key);
-//        listOfEachBowlerMostWicketTakenInEachSeason.add(getWicketTakenListOfEachPlayer(list, deliveriesList));
-//            String yearNameWicketTaken = "";
             Map.Entry<String, Integer> dataOfMap = findMostWicketTakenPlayerOfSeason(list, deliveriesList);
-            String yearNameWicketTaken = key + " = " + dataOfMap.getKey() + " " + dataOfMap.getValue() + "\n";
+            String yearNameWicketTaken = key + " = " + dataOfMap.getKey() + " " + dataOfMap.getValue();
             listOfEachBowlerMostWicketTakenInEachSeason.add(yearNameWicketTaken);
 
         }
 
-        return listOfEachBowlerMostWicketTakenInEachSeason;
+        System.out.println("6. Most wicket taken player of each season ");
+        System.out.println(listOfEachBowlerMostWicketTakenInEachSeason);
     }
 
     public static Map.Entry<String, Integer> findMostWicketTakenPlayerOfSeason(List<Integer> listOfIds,
@@ -356,7 +360,6 @@ public class ProjectIplMain {
             }
         }
         return sortMap(wicketTakenMap).get(0);
-
     }
 
     public static Map<Integer, List<Integer>> getIdsOfEachYear(List<Matches> matchesList) {
