@@ -1,0 +1,107 @@
+# Project_IPL by PostgreSQL;
+IPL project with given data set
+
+**Matches table Creation**
+```
+CREATE TABLE MATCHES(	ID INTEGER, 
+			SEASON INTEGER, 
+			CITY VARCHAR(30),
+			DATES VARCHAR(14),
+			TEAM1 VARCHAR(60),
+			TEAM2 VARCHAR(60),
+			TOSS_WINNER VARCHAR(60),
+			TOSS_DICISION VARCHAR(30),
+			RESULT VARCHAR(15),
+			DL_APPLIED INTEGER, 
+			WINNER VARCHAR(60),
+			WIN_BY_RUNS INTEGER, 
+			WIN_BY_WICKETS INTEGER,
+			PLAYER_OF_MATCH VARCHAR(50),
+			VENUE VARCHAR(120),
+			UMPIRE1 VARCHAR(50),
+			UMPIRE2 VARCHAR(50),
+			UMPIRE3 VARCHAR(50));
+```
+**Deliveries table creation**
+```
+CREATE TABLE DELIVERIES ( MATCH_ID integer, 
+			  INNING integer, 
+			  BATTING_TEAM VARCHAR(60),
+			  BOWLING_TEAM VARCHAR(60),
+			  OVER integer, 
+			  BALL integer, 
+			  BATSMAN VARCHAR(40),
+			  NON_STRIKER VARCHAR(40),
+			  BOWLER VARCHAR(40),
+			  IS_SUPER_OVER integer, 
+			  WIDE_RUNS integer, 
+			  BYE_RUNS integer, 
+			  LEGBYE_RUNS integer, 
+			  NOBALL_RUNS integer, 
+			  PENALTY_RUNS integer, 
+			  BATSMAN_RUNS integer, 
+			  EXTRA_RUNS integer, 
+			  TOTAL_RUNS integer, 
+			  PLAYER_DISMISSED VARCHAR(50),
+			  DISMISSAL_KIND VARCHAR(50),
+			  FIELDER VARCHAR(50));
+
+```
+**1. Number of matches played per year of all the years in IPL.**
+```
+-- problem 1 solution --
+SELECT SEASON,
+	COUNT(*) AS MATCH_PLAYED_PER_SEASON
+FROM MATCHES
+GROUP BY SEASON
+ORDER BY SEASON;
+```
+**2. Number of matches won of all teams over all the years of IPL.**
+```
+-- Problem 2 Solution 2--
+SELECT WINNER,
+	COUNT(*)
+AS MATCHES_WON
+FROM MATCHES
+GROUP BY WINNER;
+```
+**3. For the year 2016 get the extra runs conceded per team.**
+```
+-- Problem 3 Solution --
+SELECT BOWLING_TEAM,
+	SUM(EXTRA_RUNS) AS EXTRA_RUNS_CONCEEDED
+FROM DELIVERIES
+WHERE MATCH_ID 
+IN ( SELECT ID
+     FROM MATCHES
+     WHERE SEASON = 2016)
+GROUP BY BOWLING_TEAM
+ORDER BY EXTRA_RUNS_CONCEEDED;
+```
+**4. For the year 2015 get the top economical bowlers.**
+```
+-- Problem 4 Solution --
+SELECT BOWLER, 
+	(SUM(TOTAL_RUNS)*6.0)/COUNT(CASE WHEN NOBALL_RUNS =0 AND WIDE_RUNS = 0 THEN 1 ELSE NULL END) 
+AS ECONOMY_RATE
+FROM deliveries 
+WHERE MATCH_ID 
+IN ( SELECT ID 
+     FROM MATCHES 
+     WHERE SEASON =2015)
+GROUP BY BOWLER
+ORDER BY ECONOMY_RATE;
+```
+**5. Create your own scenario.**
+```
+-- Problem 5 Myscenario --
+SELECT BATSMAN,
+	((SUM(TOTAL_RUNS) * 100.0) / COUNT(BATSMAN)) AS ECONOMY_RATE
+FROM DELIVERIES
+WHERE MATCH_ID 
+IN ( SELECT ID
+     FROM MATCHES
+     WHERE SEASON = 2016)
+GROUP BY BATSMAN
+ORDER BY ECONOMY_RATE DESC;
+```

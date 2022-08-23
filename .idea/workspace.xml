@@ -8,10 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d8eda634-c947-4d04-8210-04ee6d6c62a4" name="Changes" comment="Solution1 after Mentor's instruction.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Deliveries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nur/hassan/Deliveries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/Matches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nur/hassan/Matches.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Nur/Hassan/ProjectIplMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nur/hassan/ProjectIplMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nur/hassan/ProjectIplMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nur/hassan/ProjectIplMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
