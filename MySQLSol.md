@@ -82,3 +82,28 @@ WHERE
 GROUP BY batsman
 ORDER BY strikeRate DESC;
 ```
+
+**6. Create your own scenario**
+```
+-- Number of times looses every team in all seasons --
+SELECT 
+    team1, c1+c2 as 'Number of times loos'
+FROM
+    (SELECT 
+        team1,
+            COUNT(CASE
+                WHEN team1 != winner THEN 1
+                ELSE NULL
+            END) as c1
+    FROM
+        matches
+    GROUP BY team1) as s1 inner join ( SELECT 
+        team2,
+            COUNT(CASE
+                WHEN team2 != winner THEN 1
+                ELSE NULL
+            END) as c2
+    FROM
+        matches
+    GROUP BY team2 ) as s2 on s1.team1 = s2.team2;
+```

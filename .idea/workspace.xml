@@ -6,15 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8eda634-c947-4d04-8210-04ee6d6c62a4" name="Changes" comment="Solution1 after Mentor's instruction.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_30.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_IPL_.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project_IPL_.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nur/hassan/Deliveries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nurhassan/java/Deliveries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nur/hassan/Matches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nurhassan/java/Matches.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nur/hassan/ProjectIplMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nurhassan/java/ProjectIplMain.java" afterDir="false" />
-    </list>
+    <list default="true" id="d8eda634-c947-4d04-8210-04ee6d6c62a4" name="Changes" comment="Solution1 after Mentor's instruction." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
