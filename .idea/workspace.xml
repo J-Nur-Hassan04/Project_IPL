@@ -7,8 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8eda634-c947-4d04-8210-04ee6d6c62a4" name="Changes" comment="Solution1 after Mentor's instruction.">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_30.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nur/hassan/ProjectIplMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nur/hassan/ProjectIplMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_IPL_.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project_IPL_.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nur/hassan/Deliveries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nurhassan/java/Deliveries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nur/hassan/Matches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nurhassan/java/Matches.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nur/hassan/ProjectIplMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nurhassan/java/ProjectIplMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +48,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/nur/temp/Project_IPL_&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/nur/temp/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
