@@ -87,23 +87,25 @@ ORDER BY strikeRate DESC;
 ```
 -- Number of times looses every team in all seasons --
 SELECT 
-    team1, c1+c2 as 'Number of times loos'
+    team1, c1 + c2 AS 'Number of times loos'
 FROM
     (SELECT 
         team1,
             COUNT(CASE
-                WHEN team1 != winner THEN 1
+                WHEN winner <> team1 AND winner <> "" THEN 1
                 ELSE NULL
-            END) as c1
+            END) AS c1
     FROM
         matches
-    GROUP BY team1) as s1 inner join ( SELECT 
+    GROUP BY team1) AS s1
+        INNER JOIN
+    (SELECT 
         team2,
             COUNT(CASE
-                WHEN team2 != winner THEN 1
+                WHEN winner <> team2 AND winner <> "" THEN 1
                 ELSE NULL
-            END) as c2
+            END) AS c2
     FROM
         matches
-    GROUP BY team2 ) as s2 on s1.team1 = s2.team2;
+    GROUP BY team2) AS s2 ON s1.team1 = s2.team2;
 ```
